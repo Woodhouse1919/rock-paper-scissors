@@ -13,32 +13,47 @@ function computerPlay() {
   }
 }
 
-function playRound(playerSelection, computerSelection) {
-  playerSelection.toLowerCase();
+function playRound() {
+  playerSelection = prompt(
+    'Please choose rock, paper, or scissors'
+  ).toLowerCase();
   computerSelection = computerPlay();
 
   // Rock player selection
   if (playerSelection === 'rock' && computerSelection === 'rock') {
-    console.log('tie, rock & rock');
+    alert('tie, rock & rock');
   } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-    console.log('lose, rock & paper');
+    alert('lose, rock & paper');
   } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    console.log('win, rock & scissors');
+    alert('win, rock & scissors');
   }
   // Paper player selection
   else if (playerSelection === 'paper' && computerSelection === 'rock') {
-    console.log('win, paper & rock');
+    alert('win, paper & rock');
   } else if (playerSelection === 'paper' && computerSelection === 'paper') {
-    console.log('tie, paper & paper');
+    alert('tie, paper & paper');
   } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-    console.log('lose, paper & scissors');
+    alert('lose, paper & scissors');
   }
   // Scissors player selection
   else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-    console.log('lose, scissors & rock');
+    alert('lose, scissors & rock');
   } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-    console.log('win, scissors & paper');
-  } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
-    console.log('tie, scissors & scissors');
+    alert('win, scissors & paper');
+  } else if (
+    playerSelection === 'scissors' &&
+    computerSelection === 'scissors'
+  ) {
+    alert('tie, scissors & scissors');
+  }
+  // Other player selection
+  else {
+    alert('User did not select rock, paper, or scissors');
+  }
+}
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    playRound();
   }
 }
