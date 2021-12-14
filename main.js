@@ -39,28 +39,34 @@ function playRound(input) {
   // Rock player selection
   if (playerSelection === 'rock' && computerSelection === 'rock') {
     messageDisplay.textContent = 'Tie, Rock & Rock';
-    scoreKeeper(false, false)
+    scoreKeeper(false, false);
   } else if (playerSelection === 'rock' && computerSelection === 'paper') {
     messageDisplay.textContent = 'Lose, Rock & Paper';
-    scoreKeeper(false, true)
+    scoreKeeper(false, true);
   } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
     messageDisplay.textContent = 'Win! Rock & Scissors';
-    scoreKeeper(true, false)
+    scoreKeeper(true, false);
   }
   // Paper player selection
   else if (playerSelection === 'paper' && computerSelection === 'rock') {
+    scoreKeeper(true, false);
     messageDisplay.textContent = 'Win! Paper & Rock';
   } else if (playerSelection === 'paper' && computerSelection === 'paper') {
+    scoreKeeper(false, false);
     messageDisplay.textContent = 'Tie, Paper & Paper';
   } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+    scoreKeeper(false, true);
     messageDisplay.textContent = 'Lose, Paper & Scissors';
   }
   // Scissors player selection
   else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+    scoreKeeper(false, true);
     messageDisplay.textContent = 'Lose, Scissors & Rock';
   } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+    scoreKeeper(true, false);
     messageDisplay.textContent = 'Win! Scissors & Paper';
   } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
+    scoreKeeper(false, false);
     messageDisplay.textContent = 'Tie, Scissors & Scissors';
   }
   // Other player selection
@@ -70,11 +76,16 @@ function playRound(input) {
 }
 
 function scoreKeeper(player, cpu) {
+  const playerDisplay = document.querySelector('.playerscore p');
+  const computerDisplay = document.querySelector('.computerscore p');
+
   if (player === true) {
-    playerScore++
+    playerScore++;
+    playerDisplay.textContent = `Player: ${playerScore}`;
     console.log(`Player = ${playerScore}`);
   } else if (cpu === true) {
-    computerScore++
+    computerScore++;
+    computerDisplay.textContent = `Computer: ${computerScore}`;
     console.log(`Computer = ${computerScore}`);
   } else if (player === false && cpu === false) {
     console.log('Tie');
