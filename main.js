@@ -1,4 +1,6 @@
 playerSelection();
+let playerScore = 0;
+let computerScore = 0;
 
 // Event listener for user making a selection
 function playerSelection() {
@@ -37,10 +39,13 @@ function playRound(input) {
   // Rock player selection
   if (playerSelection === 'rock' && computerSelection === 'rock') {
     messageDisplay.textContent = 'Tie, Rock & Rock';
+    scoreKeeper(false, false)
   } else if (playerSelection === 'rock' && computerSelection === 'paper') {
     messageDisplay.textContent = 'Lose, Rock & Paper';
+    scoreKeeper(false, true)
   } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
     messageDisplay.textContent = 'Win! Rock & Scissors';
+    scoreKeeper(true, false)
   }
   // Paper player selection
   else if (playerSelection === 'paper' && computerSelection === 'rock') {
@@ -61,5 +66,17 @@ function playRound(input) {
   // Other player selection
   else {
     console.log('User did not select rock, paper, or scissors');
+  }
+}
+
+function scoreKeeper(player, cpu) {
+  if (player === true) {
+    playerScore++
+    console.log(`Player = ${playerScore}`);
+  } else if (cpu === true) {
+    computerScore++
+    console.log(`Computer = ${computerScore}`);
+  } else if (player === false && cpu === false) {
+    console.log('Tie');
   }
 }
