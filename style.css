@@ -12,6 +12,7 @@ body {
 }
 
 h1 {
+  text-align: center;
   font-size: 60px;
   margin-bottom: 50px;
 }
@@ -21,9 +22,8 @@ h1 {
   flex-direction: row;
 }
 
-.icon {
-  height: 150px;
-  width: 150px;
+.selection {
+  padding: 20px;
   margin: 0 16px;
   border: 1px solid red;
 }
