@@ -1,4 +1,7 @@
 playerSelection();
+const playerDisplay = document.querySelector('.playerscore p');
+const computerDisplay = document.querySelector('.computerscore p');
+const messageDisplay = document.querySelector('h3');
 let playerScore = 0;
 let computerScore = 0;
 
@@ -34,7 +37,6 @@ function computerPlay() {
 function playRound(input) {
   playerSelection = input;
   computerSelection = computerPlay();
-  const messageDisplay = document.querySelector('h3');
 
   // Rock player selection
   if (playerSelection === 'rock' && computerSelection === 'rock') {
@@ -73,12 +75,10 @@ function playRound(input) {
   else {
     console.log('User did not select rock, paper, or scissors');
   }
+  gameOver();
 }
 
 function scoreKeeper(player, cpu) {
-  const playerDisplay = document.querySelector('.playerscore p');
-  const computerDisplay = document.querySelector('.computerscore p');
-
   if (player === true) {
     playerScore++;
     playerDisplay.textContent = `Player: ${playerScore}`;
@@ -90,4 +90,22 @@ function scoreKeeper(player, cpu) {
   } else if (player === false && cpu === false) {
     console.log('Tie');
   }
+}
+
+function gameOver() {
+  if (playerScore === 5) {
+    alert('Congratulations You Won!');
+    reset();
+  } else if (computerScore === 5) {
+    alert('Sorry, You Lose');
+    reset();
+  }
+}
+
+function reset() {
+  playerScore = 0;
+  computerScore = 0;
+  messageDisplay.textContent = `Good Luck!`;
+  playerDisplay.textContent = `Player: ${playerScore}`;
+  computerDisplay.textContent = `Computer: ${computerScore}`;
 }
