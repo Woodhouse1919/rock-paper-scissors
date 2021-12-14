@@ -27,3 +27,10 @@ h1 {
   margin: 0 16px;
   border: 1px solid red;
 }
+
+
+h3 {
+  margin: 16px 16px;
+  padding: 20px;
+  text-align: center;
+}
