@@ -105,7 +105,7 @@ function gameOver() {
 function reset() {
   playerScore = 0;
   computerScore = 0;
-  messageDisplay.textContent = `Good Luck!`;
+  messageDisplay.textContent = `Good Luck! First to 5 Wins`;
   playerDisplay.textContent = `Player: ${playerScore}`;
   computerDisplay.textContent = `Computer: ${computerScore}`;
 }
