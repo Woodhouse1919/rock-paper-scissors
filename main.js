@@ -1,59 +1,62 @@
+// Event listener for user making a selection
+const playerSelection = document.querySelectorAll('.selection')
+playerSelection.forEach(item => {
+  item.addEventListener('click', (e) => {
+    console.log(`User: ${e.target.innerHTML}`);
+    return e.target.innerHTML.toLowerCase();
+  })
+})
+
+
+// Generates random selection for computer
 function computerPlay() {
   let selection = Math.ceil(Math.random() * 3);
 
   if (selection === 1) {
-    console.log('rock');
+    console.log('Computer: Rock');
     return 'rock';
   } else if (selection === 2) {
-    console.log('paper');
+    console.log('Computer: Paper');
     return 'paper';
   } else if (selection === 3) {
-    console.log('scissors');
+    console.log('Computer: Scissors');
     return 'scissors';
   }
 }
 
+
+
 function playRound() {
-  playerSelection = prompt(
-    'Please choose rock, paper, or scissors'
-  ).toLowerCase();
   computerSelection = computerPlay();
 
   // Rock player selection
   if (playerSelection === 'rock' && computerSelection === 'rock') {
-    alert('tie, rock & rock');
+    console.log('tie, rock & rock');
   } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-    alert('lose, rock & paper');
+    console.log('lose, rock & paper');
   } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    alert('win, rock & scissors');
+    console.log('win, rock & scissors');
   }
   // Paper player selection
   else if (playerSelection === 'paper' && computerSelection === 'rock') {
-    alert('win, paper & rock');
+    console.log('win, paper & rock');
   } else if (playerSelection === 'paper' && computerSelection === 'paper') {
-    alert('tie, paper & paper');
+    console.log('tie, paper & paper');
   } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-    alert('lose, paper & scissors');
+    console.log('lose, paper & scissors');
   }
   // Scissors player selection
   else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-    alert('lose, scissors & rock');
+    console.log('lose, scissors & rock');
   } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-    alert('win, scissors & paper');
-  } else if (
-    playerSelection === 'scissors' &&
-    computerSelection === 'scissors'
-  ) {
-    alert('tie, scissors & scissors');
+    console.log('win, scissors & paper');
+  } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
+    console.log('tie, scissors & scissors');
   }
   // Other player selection
   else {
-    alert('User did not select rock, paper, or scissors');
+    console.log('User did not select rock, paper, or scissors');
   }
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    playRound();
-  }
-}
+function game() {}
