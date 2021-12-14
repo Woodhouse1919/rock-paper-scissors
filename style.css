@@ -28,6 +28,10 @@ h1 {
   border: 1px solid red;
 }
 
+.selection:hover {
+  font-weight: 900;
+}
+
 
 h3 {
   margin: 16px 16px;
@@ -41,4 +45,8 @@ h3 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.score p {
+  padding: 5px;
 }
