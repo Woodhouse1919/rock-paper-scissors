@@ -1,12 +1,17 @@
-// Event listener for user making a selection
-const playerSelection = document.querySelectorAll('.selection')
-playerSelection.forEach(item => {
-  item.addEventListener('click', (e) => {
-    console.log(`User: ${e.target.innerHTML}`);
-    return e.target.innerHTML.toLowerCase();
-  })
-})
+playerSelection();
 
+// Event listener for user making a selection
+function playerSelection() {
+  const gameButton = document.querySelectorAll('.selection');
+
+  gameButton.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      console.log(`User: ${e.target.textContent}`);
+      const playerSelection = e.target.textContent.toLowerCase();
+      playRound(playerSelection);
+    });
+  });
+}
 
 // Generates random selection for computer
 function computerPlay() {
@@ -24,39 +29,37 @@ function computerPlay() {
   }
 }
 
-
-
-function playRound() {
+function playRound(input) {
+  playerSelection = input;
   computerSelection = computerPlay();
+  const messageDisplay = document.querySelector('h3');
 
   // Rock player selection
   if (playerSelection === 'rock' && computerSelection === 'rock') {
-    console.log('tie, rock & rock');
+    messageDisplay.textContent = 'Tie, Rock & Rock';
   } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-    console.log('lose, rock & paper');
+    messageDisplay.textContent = 'Lose, Rock & Paper';
   } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    console.log('win, rock & scissors');
+    messageDisplay.textContent = 'Win! Rock & Scissors';
   }
   // Paper player selection
   else if (playerSelection === 'paper' && computerSelection === 'rock') {
-    console.log('win, paper & rock');
+    messageDisplay.textContent = 'Win! Paper & Rock';
   } else if (playerSelection === 'paper' && computerSelection === 'paper') {
-    console.log('tie, paper & paper');
+    messageDisplay.textContent = 'Tie, Paper & Paper';
   } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-    console.log('lose, paper & scissors');
+    messageDisplay.textContent = 'Lose, Paper & Scissors';
   }
   // Scissors player selection
   else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-    console.log('lose, scissors & rock');
+    messageDisplay.textContent = 'Lose, Scissors & Rock';
   } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-    console.log('win, scissors & paper');
+    messageDisplay.textContent = 'Win! Scissors & Paper';
   } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
-    console.log('tie, scissors & scissors');
+    messageDisplay.textContent = 'Tie, Scissors & Scissors';
   }
   // Other player selection
   else {
     console.log('User did not select rock, paper, or scissors');
   }
 }
-
-function game() {}
